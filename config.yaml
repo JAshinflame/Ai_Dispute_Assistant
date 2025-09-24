@@ -1,0 +1,21 @@
+pipeline:
+  duplicate:
+    use_rapidfuzz: true
+    merchant_threshold: 0.85
+    dup_score_threshold_auto: 0.92
+    amount_tol_pct: 0.02
+    date_window_days: 2
+    top_k_candidates: 5
+  rules:
+    enable: true
+  model:
+    enable: false
+    model_path: ./model.pkl
+  outputs:
+    csv_dir: /mnt/data
+    sqlite: true
+performance:
+  n_jobs: -1
+  benchmark: true
+logging:
+  level: INFO
